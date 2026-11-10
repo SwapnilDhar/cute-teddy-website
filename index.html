@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hi Cutie 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: #ffe6ef;
+    overflow: hidden;
+    color: #a34d70;
+}
+
+.screen {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    transition: opacity 0.6s, transform 0.6s;
+    padding: 20px;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9);
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #d85d91;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #ad6682;
+    margin-bottom: 25px;
+}
+
+/* TEDDY BEAR */
+
+.teddy {
+    position: relative;
+    width: 190px;
+    height: 220px;
+    cursor: pointer;
+    animation: bounce 2s infinite ease-in-out;
+    margin: 20px 0;
+}
+
+.ear {
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    background: #c58b66;
+    border-radius: 50%;
+    top: 5px;
+    z-index: 1;
+}
+
+.ear.left { left: 15px; }
+.ear.right { right: 15px; }
+
+.ear::after {
+    content: '';
+    position: absolute;
+    background: #eab9ad;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    top: 15px;
+    left: 15px;
+}
+
+.head {
+    position: absolute;
+    width: 155px;
+    height: 145px;
+    background: #d9a47f;
+    border-radius: 48%;
+    left: 17px;
+    top: 25px;
+    z-index: 2;
+    box-shadow: inset -8px -7px 0 #c58e6d;
+}
+
+.eye {
+    position: absolute;
+    width: 10px;
+    height: 13px;
+    background: #493027;
+    border-radius: 50%;
+    top: 58px;
+}
+
+.eye.left { left: 43px; }
+.eye.right { right: 43px; }
+
+.snout {
+    position: absolute;
+    width: 48px;
+    height: 36px;
+    background: #f4d4c3;
+    border-radius: 50%;
+    left: 54px;
+    top: 76px;
+}
+
+.nose {
+    position: absolute;
+    width: 13px;
+    height: 9px;
+    background: #754737;
+    border-radius: 50%;
+    top: 9px;
+    left: 18px;
+}
+
+.mouth {
+    position: absolute;
+    width: 15px;
+    height: 9px;
+    border-bottom: 2px solid #754737;
+    border-radius: 50%;
+    left: 17px;
+    top: 15px;
+}
+
+.body {
+    position: absolute;
+    width: 100px;
+    height: 95px;
+    background: #c9906d;
+    border-radius: 45%;
+    top: 137px;
+    left: 45px;
+    z-index: 1;
+}
+
+.arm {
+    position: absolute;
+    width: 43px;
+    height: 75px;
+    background: #d9a47f;
+    border-radius: 40px;
+    top: 137px;
+    z-index: 3;
+}
+
+.arm.left {
+    left: 25px;
+    transform: rotate(35deg);
+}
+
+.arm.right {
+    right: 0px;
+    transform-origin: bottom center;
+    animation: wave 0.7s infinite alternate ease-in-out;
+}
+
+.leg {
+    position: absolute;
+    width: 55px;
+    height: 35px;
+    background: #d9a47f;
+    border-radius: 50%;
+    top: 205px;
+    z-index: 0;
+}
+
+.leg.left { left: 40px; }
+.leg.right { right: 30px; }
+
+@keyframes wave {
+    from { transform: rotate(-20deg); }
+    to { transform: rotate(-75deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.click-text {
+    margin-top: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: 0.5; }
+}
+
+/* SECOND SCREEN */
+
+.message-card {
+    background: #fff5f8;
+    border: 2px solid #ffc2d7;
+    border-radius: 30px;
+    padding: 40px 30px;
+    max-width: 380px;
+    box-shadow: 0 10px 35px #e9a8c255;
+}
+
+.message-card .heart {
+    font-size: 4rem;
+    animation: bounce 1.5s infinite;
+}
+
+.message-card h1 {
+    font-size: 2rem;
+    margin: 15px 0;
+}
+
+.message-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #a75c7c;
+}
+
+button {
+    margin-top: 25px;
+    padding: 13px 27px;
+    background: #e982aa;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d85d91;
+    transform: scale(1.05);
+}
+
+/* FLOATING HEARTS */
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    opacity: 0.5;
+    pointer-events: none;
+    animation: floatUp 7s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    20% { opacity: 0.6; }
+    100% {
+        transform: translateY(-110vh) rotate(40deg);
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FIRST SCREEN -->
+
+<div class="screen" id="home">
+
+    <h1>Hi Soumya! 💗</h1>
+    <p class="subtitle">Someone is very happy to see a cutie like you!</p>
+
+    <div class="teddy" onclick="showMessage()">
+
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+
+        <div class="head">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="snout">
+                <div class="nose"></div>
+                <div class="mouth"></div>
+            </div>
+        </div>
+
+        <div class="body"></div>
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+
+    </div>
+
+    <p class="click-text">♡ Click on me! ♡</p>
+
+</div>
+
+
+<!-- SECOND SCREEN -->
+
+<div class="screen hidden" id="message">
+
+    <div class="message-card">
+
+        <div class="heart">💗</div>
+
+        <h1>You're adorable!</h1>
+
+        <p>
+            Just a little reminder that<br>
+            you are the cutest in the world 💞<br>
+            and I love spending time with you so much 🌷✨<br><br>
+
+            Sending you all the cuddles 🫶💗<br>
+            from Swap 🧸💕
+        </p>
+
+        <button onclick="goBack()">Awww! Go back 💕</button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function showMessage() {
+    document.getElementById('home').classList.add('hidden');
+    document.getElementById('message').classList.remove('hidden');
+}
+
+function goBack() {
+    document.getElementById('message').classList.add('hidden');
+    document.getElementById('home').classList.remove('hidden');
+}
+
+// Floating hearts
+
+const hearts = ['💗', '💕', '♡', '🌸', '💖'];
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'floating-heart';
+    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+    heart.style.fontSize = (14 + Math.random() * 15) + 'px';
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(createHeart, 600);
+
+</script>
+
+</body>
+</html>
